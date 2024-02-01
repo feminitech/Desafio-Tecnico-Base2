@@ -1,0 +1,35 @@
+Funcionalidade: Recarga de Cartão de Ônibus
+
+Cenário: Recarga em Massa pelo RH no Sistema Web
+    Dado que o RH está autenticado no sistema web de recarga de cartão
+    E existem usuários registrados no sistema com saldos iniciais
+    Quando o RH realiza uma recarga em massa para todos os usuários registrados no valor de R$10,00 cada
+    Então o sistema deve registrar as transações de recarga no histórico de cada usuário
+    E a operadora de cartões deve ser notificada sobre as recargas
+    E os saldos de todos os usuários devem ser atualizados corretamente
+
+  Cenário: Validação de Saldo Após Recarga em Massa
+    Dado que o sistema registrou uma recarga em massa para todos os usuários no valor de R$5,00 cada
+    E o pagamento das recargas foi confirmado pela operadora de cartões
+    Quando um usuário qualquer verifica o saldo do seu cartão
+    Então o sistema deve mostrar um saldo atualizado de acordo com a recarga realizada
+    E o histórico de transações deve refletir as recargas em massa realizadas
+
+  Cenário: Recarga de Cartão pelo Usuário no App Mobile
+    Dado que o usuário está autenticado no aplicativo mobile de recarga de cartão
+    E o usuário "Maria Oliveira" já possui um saldo de R$30,00 no cartão
+    Quando o usuário realiza uma recarga no valor de R$15,00
+    E o pagamento da recarga é confirmado
+    Então o sistema deve registrar a transação de recarga no histórico do usuário
+    E o saldo do usuário "Maria Oliveira" deve ser atualizado para R$45,00
+
+  Cenário: Validação de Saldo Após Recarga
+    Dado que o sistema registrou uma recarga para o usuário "Pedro Santos" no valor de R$10,00
+    E o pagamento da recarga foi confirmado pela operadora de cartões
+    Quando o usuário "Pedro Santos" verifica o saldo do seu cartão
+    Então o sistema deve mostrar um saldo atualizado de R$30,00 para o usuário "Pedro Santos"
+    E o histórico de transações deve refletir a recarga realizada
+
+
+
+
